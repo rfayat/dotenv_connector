@@ -5,6 +5,7 @@ Author: Romain Fayat, November 2020
 """
 from typing import Dict
 import dotenv
+import inspect
 
 
 class DotEnvConnector(Dict):
@@ -120,3 +121,16 @@ class DotEnvConnector(Dict):
     # Those which require only to write data to dotenv
     for f in ["clear"]:
         vars()[f] = write_to_dotenv_after(getattr(dict, f))
+
+    def __getitem__(self, key):
+        """Read the values of the .env file if needed and return the item
+
+        __getitem__ is called by other methods (e.g. update), to avoid having
+        multiple reading of the file, we update self only if __getitem__ is
+        being called at the module level
+
+        """
+        if inspect.stack()[1][3] == "<module>":
+            self.update_from_dotenv()
+
+        return dict.__getitem__(self, key)
