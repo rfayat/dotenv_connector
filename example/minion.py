@@ -23,5 +23,5 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("Process interrupted")
     finally:
-        d.pop("counter")
+        d.pop("counter")  # remove the counter from .my_variables
         d["status"] = "finished"
