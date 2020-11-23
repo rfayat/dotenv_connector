@@ -28,7 +28,7 @@ We can then modify the file storing the variables from another python process (o
 
 ```python
 >>> from dotenv_connector import DotEnvConnector
->>> shared_variables = DotEnvConnector("path/to/.env")  # An empty file is created if needed
+>>> shared_variables = DotEnvConnector("path/to/.env")  # Access the .env file created by the first process
 >>> shared_variables
 {'my_key': 'my_value'}
 >>> shared_variables["my_key"] = "new_value"  
