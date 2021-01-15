@@ -1,6 +1,8 @@
 # dotenv connector
 This code is essentially a wrapper around some of the functionalities of [python-dotenv](https://pypi.org/project/python-dotenv/), allowing to easily interact with a text file containing environment variables (read / write). Rather than being focused on web development, it is intended to facilitate the sharing of variables between python processes.
 
+If you are looking for a more complete tool for handling a simple file-based database, check out [tinydb](https://tinydb.readthedocs.io/en/latest/).
+
 ## Installation
 The installation can be done directly from the github repository (requires Python 3.6+):
 ```bash
@@ -53,9 +55,3 @@ See the [example folder](example) for an example where a [master script](example
 **Low-hanging fruits**
 - [ ] Unit-testing
 - [ ] Better input parsing (.env files only tolerate strings)
-
-**Longer-term**
-- [ ] Replace .env file by JSON
-  - Nested dictionaries could be used
-  - More flexible when it comes to the data type
-  - The input parsing could be done directly by playing with the json loader/writer
